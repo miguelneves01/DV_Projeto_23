@@ -56,6 +56,12 @@ public class GridXZ<T>
         z = Mathf.FloorToInt(worldPosition.z / cellSize);
     }
 
+    public bool InGrid(int x, int z)
+    {
+        return x >= 0 && z >= 0 && x < width && z < height;
+
+    }
+
     public Vector3 GetWorldPosition(int x, int z)
     {
         return new Vector3(x, 0, z) * cellSize;
@@ -63,7 +69,7 @@ public class GridXZ<T>
 
     public void SetValue(int x, int z, T value)
     {
-        if (x >= 0 && z >= 0 && x < width && z < height) 
+        if (InGrid(x, z))
         { 
             gridArray[x, z] = value;
             debugTextArray[x, z].text = gridArray[x, z].ToString();
@@ -96,4 +102,8 @@ public class GridXZ<T>
         return GetValue(x, z);
     }
 
+    public float GetCellSize()
+    {
+        return cellSize;
+    }
 }

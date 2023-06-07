@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GridBuildingSystem : MonoBehaviour
@@ -9,8 +7,17 @@ public class GridBuildingSystem : MonoBehaviour
     private GridXZ<GridObject> _grid;
     private PlacedBuildingSO.Dir _curDir = PlacedBuildingSO.Dir.Down;
 
+    private static bool _buildMode;
+
+    public static bool BuildModeActive()
+    {
+        return _buildMode;
+    }
+
     private void Awake()
     {
+        _buildMode = false;
+
         int _gridWidth = 10;
         int _gridHeight = 10;
         float _cellSize = 10f;
@@ -19,50 +26,43 @@ public class GridBuildingSystem : MonoBehaviour
             (GridXZ<GridObject> grid, int x, int z) => new GridObject(grid, x, z));
     }
 
-    public class GridObject
-    {
-        private GridXZ<GridObject> _grid;
-        private int _x;
-        private int _z;
-        private Transform _transform;
-
-        public GridObject(GridXZ<GridObject> grid, int x, int z)
-        {
-            this._grid = grid;
-            this._x = x;
-            this._z = z;
-        }
-
-        public void SetTransform(Transform transform)
-        {
-            this._transform = transform;
-        }
-
-        public bool CanBuild()
-        {
-            return _transform == null;
-        }
-
-        public Transform ClearTransform()
-        {
-            Transform curTransform = _transform;
-            this._transform = null;
-            return curTransform;
-        }
-
-        public override string ToString()
-        {
-            return _x + ", " + _z + "\n" + _transform;
-        }
-    }
-
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            _buildMode = !_buildMode;
+            Debug.Log("BuildMode = " + _buildMode);
+        }
+
+        if (!_buildMode)
+        {
+            HandleInteract();
+
+            return;
+        }
+
         HandleLeftClick();
 
         HandleRightClick();
 
         HandleRotate();
+    }
+
+    private void HandleInteract()
+    {
+        if (!Input.GetMouseButtonDown(0)) { return; }
+
+        Vector3 pos = Utils.GetMouseWorldPosition();
+        _grid.GetXZ(pos, out int x, out int z);
+
+        if (!_grid.InGrid(x, z)) { return; }
+
+        GridObject gridObject = _grid.GetValue(x, z);
+
+        if (!gridObject.HasBuilding())
+        {
+            gridObject.Interact();
+        }
     }
 
     private void HandleLeftClick()
@@ -85,7 +85,7 @@ public class GridBuildingSystem : MonoBehaviour
                 break;
             }
 
-            if (!_grid.GetValue(gridPosition.x, gridPosition.y).CanBuild())
+            if (!_grid.GetValue(gridPosition.x, gridPosition.y).HasBuilding())
             {
                 canBuild = false;
             }
@@ -100,11 +100,12 @@ public class GridBuildingSystem : MonoBehaviour
             Debug.Log(rotationOffset);
             Vector3 buildingWorldPos =
                 _grid.GetWorldPosition(x, z) + new Vector3(rotationOffset.x, 0, rotationOffset.y) * _grid.GetCellSize();
-            Transform buildingTransform = Instantiate(_placedBuildingSO.Prefab, buildingWorldPos , Quaternion.Euler(0,_placedBuildingSO.GetRotationAngle(_curDir), 0));
+
+            PlacedBuilding placedBuilding = PlacedBuilding.Create(buildingWorldPos, new Vector2Int(x, z), _curDir, _placedBuildingSO);
 
             foreach (var gridPosition in gridPositionList)
             {
-                _grid.GetValue(gridPosition.x, gridPosition.y).SetTransform(buildingTransform);
+                _grid.GetValue(gridPosition.x, gridPosition.y).SetPlacedBuilding(placedBuilding);
             }
         }
         else
@@ -125,9 +126,9 @@ public class GridBuildingSystem : MonoBehaviour
 
         GridObject gridObject = _grid.GetValue(x, z);
 
-        if (gridObject.CanBuild()) { return; }
+        if (gridObject.HasBuilding()) { return; }
     
-        Destroy(gridObject.ClearTransform().gameObject);   
+        Destroy(gridObject.ClearPlacedBuilding().transform.gameObject);   
         
     }
 

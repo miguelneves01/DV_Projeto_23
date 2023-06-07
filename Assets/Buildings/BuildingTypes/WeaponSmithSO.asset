@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: WeaponSmith
   <Height>k__BackingField: 1
-  <Width>k__BackingField: 2
+  <Width>k__BackingField: 1
   <Prefab>k__BackingField: {fileID: 3172708988734683419, guid: 168ceb0bfba44dd41abbcdc4badea80d, type: 3}
-  <Visual>k__BackingField: {fileID: 0}
+  <Visual>k__BackingField: {fileID: 7597796333943800463, guid: b26fa4bd877ede547b8ada58f34f2f33, type: 3}

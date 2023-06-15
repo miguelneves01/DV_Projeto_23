@@ -1,31 +1,33 @@
+using UnityEngine;
+
 public class GridObject
 {
     private GridXZ<GridObject> _grid;
-    private int _x;
-    private int _z;
     private PlacedBuilding _placedBuilding;
+    private readonly int _x;
+    private readonly int _z;
 
     public GridObject(GridXZ<GridObject> grid, int x, int z)
     {
-        this._grid = grid;
-        this._x = x;
-        this._z = z;
+        _grid = grid;
+        _x = x;
+        _z = z;
     }
 
     public void SetPlacedBuilding(PlacedBuilding placedBuilding)
     {
-        this._placedBuilding = placedBuilding;
+        _placedBuilding = placedBuilding;
     }
 
     public bool HasBuilding()
     {
-        return _placedBuilding == null;
+        return _placedBuilding != null;
     }
 
     public PlacedBuilding ClearPlacedBuilding()
     {
-        PlacedBuilding currPlacedBuilding = _placedBuilding;
-        this._placedBuilding = null;
+        var currPlacedBuilding = _placedBuilding;
+        _placedBuilding = null;
         return currPlacedBuilding;
     }
 
@@ -37,5 +39,10 @@ public class GridObject
     public void Interact()
     {
         _placedBuilding.Interact();
+    }
+
+    internal Vector3 GetPosition()
+    {
+        return new Vector3(_x, 0, _z);
     }
 }

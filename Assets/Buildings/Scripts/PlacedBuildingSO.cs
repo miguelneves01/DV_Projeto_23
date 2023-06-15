@@ -1,10 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Placed Building SO", menuName = "PlacedBuildings")]
-public class PlacedBuildingSO : ScriptableObject
+public class PlacedBuildingSO : ShopItemSO
 {
     public static Dir GetNextDir(Dir dir)
     {
@@ -27,7 +28,6 @@ public class PlacedBuildingSO : ScriptableObject
         Right,
     }
 
-    [field: SerializeField] public string Name { private set; get; }
     [field: SerializeField] public int Height { private set; get; }
     [field: SerializeField] public int Width { private set; get; }
     [field: SerializeField] public Transform Prefab { private set; get; }

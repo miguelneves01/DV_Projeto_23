@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c701142fcd2a38b4698727a4bfbecfd3, type: 3}
+  m_Name: HardenedWoodBowSO
+  m_EditorClassIdentifier: 
+  <Sprite>k__BackingField: {fileID: -1968245654, guid: a4bc98e6c7ef0be458936aa005abf279, type: 3}
+  <Name>k__BackingField: Hardened Wood Bow
+  <Description>k__BackingField: Slightly better than a wood bow.
+  <Cost>k__BackingField: 140
+  <Level>k__BackingField: 4
+  <Type>k__BackingField: 2
+  <Damage>k__BackingField: 15
+  <AttackSpeed>k__BackingField: 1

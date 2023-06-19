@@ -15,7 +15,8 @@ MonoBehaviour:
   <Sprite>k__BackingField: {fileID: 21300000, guid: de0bfb30c3f45fa4a94b453b431528eb, type: 3}
   <Name>k__BackingField: Blacksmith
   <Description>k__BackingField: Buy and Upgrade Meele Weapons!
-  <Cost>k__BackingField: 100
+  <Cost>k__BackingField: 400
+  <Level>k__BackingField: 1
   <Type>k__BackingField: 0
   <Height>k__BackingField: 1
   <Width>k__BackingField: 1

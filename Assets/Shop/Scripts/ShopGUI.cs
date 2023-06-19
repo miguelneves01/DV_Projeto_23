@@ -6,6 +6,7 @@ public class ShopGUI : MonoBehaviour
 {
     [SerializeField] private Transform _buttonTemplate;
     [SerializeField] public GameObject _shopContentUI;
+    [SerializeField] private GameObject _uiBlocker;
     [SerializeField] public List<ShopItemSO> _shopItemList;
     [SerializeField] public GameObject _shopUI;
 
@@ -67,12 +68,48 @@ public class ShopGUI : MonoBehaviour
     private void ImportShop()
     {
         for (var i = 0; i < _shopItemList.Count; i++)
+        {
+            if (_shopItemList[i].Level > ExperienceSystem.Instance.CurrentLevel) continue;
+
             ShopItem.Create(_buttonTemplate, _shopItemList[i], i, _shopContentUI.transform, this);
+        }
     }
 
     private void Start()
     {
+        _shopItemList.Sort(new ItemLevelComparer());
+
+        ImportShop();
+
+        ExperienceSystem.Instance.OnLevelChange += ImportShop_OnLevelChange;
+    }
+
+    private void ImportShop_OnLevelChange(object sender, EventArgs e)
+    {
+        ClearShop();
         ImportShop();
     }
 
+    private void ClearShop()
+    {
+        for (int i = 0; i < _shopContentUI.transform.childCount; i++)
+        {
+            var child = _shopContentUI.transform.GetChild(i);
+            Destroy(child.gameObject);
+        }
+    }
+
+    public void CloseShop()
+    {
+        ShowShop(false);
+        _uiBlocker.SetActive(false);
+    }
+
+    public class ItemLevelComparer : IComparer<ShopItemSO>
+    {
+        public int Compare(ShopItemSO _x, ShopItemSO _y)
+        {
+            return _x.Level.CompareTo(_y.Level);
+        }
+    }
 }

@@ -5,7 +5,7 @@ public abstract class PlacedBuilding : MonoBehaviour
     private PlacedBuildingSO.Dir _dir;
     private Vector2Int _origin;
 
-    protected PlacedBuildingSO _placedBuildingSO;
+    public PlacedBuildingSO PlacedBuildingSO { private set; get; }
 
     public static PlacedBuilding Create(Vector3 worldPos, Vector2Int origin, PlacedBuildingSO.Dir dir,
         PlacedBuildingSO placedBuildingSO, Transform parent)
@@ -15,7 +15,7 @@ public abstract class PlacedBuilding : MonoBehaviour
 
         var placedBuilding = placedObjectTransform.GetComponent<PlacedBuilding>();
 
-        placedBuilding._placedBuildingSO = placedBuildingSO;
+        placedBuilding.PlacedBuildingSO = placedBuildingSO;
         placedBuilding._origin = origin;
         placedBuilding._dir = dir;
 
@@ -23,5 +23,4 @@ public abstract class PlacedBuilding : MonoBehaviour
     }
 
     public abstract void Interact();
-    
 }

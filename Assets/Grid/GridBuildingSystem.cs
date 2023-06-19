@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GridBuildingSystem : MonoBehaviour
 {
@@ -11,14 +12,14 @@ public class GridBuildingSystem : MonoBehaviour
     [SerializeField] private readonly int _gridWidth = 10;
 
     private PlacedBuildingSO.Dir _curDir = PlacedBuildingSO.Dir.Down;
-    public PlacedBuildingSO SelectedPlacedBuildingSo { private set; get; }
 
     private GridXZ<GridObject> _grid;
+
+    [SerializeField] private Transform _parentTransform;
+    public PlacedBuildingSO SelectedPlacedBuildingSo { private set; get; }
     public bool BuildMode { set; get; }
 
     public event EventHandler OnSelectedBuildingChange;
-
-    [SerializeField] private Transform _parentTransform;
 
     private void Awake()
     {
@@ -78,9 +79,7 @@ public class GridBuildingSystem : MonoBehaviour
 
         if (!_grid.InGrid(x, z)) return;
 
-        var gridPositionList = SelectedPlacedBuildingSo.GetGridPositionList(new Vector2Int(x, z), _curDir);
-
-        if (IsEmptyGridPositionList(x, z, gridPositionList))
+        if (IsEmptyGridPositionList(x, z, out var gridPositionList))
         {
             var buildingWorldPos = GetBuildingWorldPos(x, z);
 
@@ -118,10 +117,12 @@ public class GridBuildingSystem : MonoBehaviour
 
         if (!gridObject.HasBuilding()) return;
 
+        CurrencySystem.Instance.AddCurrency(Mathf.CeilToInt(gridObject.GetPlacedBuildingSO().Cost * 0.5f));
+
         Destroy(gridObject.ClearPlacedBuilding().transform.gameObject);
     }
 
-    private bool IsEmptyGridPositionList(int x,int z, List<Vector2Int> gridPositionList)
+    private bool IsEmptyGridPositionList(int x, int z, out List<Vector2Int> gridPositionList)
     {
         gridPositionList = SelectedPlacedBuildingSo.GetGridPositionList(new Vector2Int(x, z), _curDir);
 
@@ -197,5 +198,17 @@ public class GridBuildingSystem : MonoBehaviour
         SelectedPlacedBuildingSo = building;
 
         OnSelectedBuildingChange?.Invoke(Instance, EventArgs.Empty);
+    }
+
+    public void DemolishRandomBuilding()
+    {
+        var list = _grid.GetValues();
+
+        list = list.FindAll(o => o.HasBuilding());
+
+
+        var building = list[Random.Range(0, list.Count)];
+
+        Destroy(building.ClearPlacedBuilding().transform.gameObject);
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GridXZ<T>
@@ -20,7 +21,6 @@ public class GridXZ<T>
         for (var x = 0; x < gridArray.GetLength(0); x++)
         for (var z = 0; z < gridArray.GetLength(1); z++)
             gridArray[x, z] = createGridObject(this, x, z);
-
     }
 
     public void GetXZ(Vector3 worldPosition, out int x, out int z)
@@ -41,10 +41,7 @@ public class GridXZ<T>
 
     public void SetValue(int x, int z, T value)
     {
-        if (InGrid(x, z))
-        {
-            gridArray[x, z] = value;
-        }
+        if (InGrid(x, z)) gridArray[x, z] = value;
     }
 
     public void SetValue(Vector3 worldPosition, T value)
@@ -71,5 +68,15 @@ public class GridXZ<T>
     public float GetCellSize()
     {
         return cellSize;
+    }
+
+    public List<T> GetValues()
+    {
+        var list = new List<T>();
+        for (var i = 0; i < width; i++)
+        for (var j = 0; j < height; j++)
+            list.Add(GetValue(i, j));
+
+        return list;
     }
 }

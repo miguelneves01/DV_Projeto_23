@@ -6,12 +6,12 @@ public class ShopGUI : MonoBehaviour
 {
     [SerializeField] private Transform _buttonTemplate;
     [SerializeField] public GameObject _shopContentUI;
-    [SerializeField] private GameObject _uiBlocker;
     [SerializeField] public List<ShopItemSO> _shopItemList;
     [SerializeField] public GameObject _shopUI;
+    [SerializeField] private GameObject _uiBlocker;
+    public bool Show { private set; get; }
 
     public event EventHandler NotEnoughCurrency;
-    public bool Show { private set; get; }
 
     public void Buy(int itemOrder)
     {
@@ -23,7 +23,7 @@ public class ShopGUI : MonoBehaviour
             return;
         }
 
-        CurrencySystem.Instance.RemoveCurrency(item.Cost);      
+        CurrencySystem.Instance.RemoveCurrency(item.Cost);
 
         switch (item.Type)
         {
@@ -31,10 +31,13 @@ public class ShopGUI : MonoBehaviour
                 GridBuildingSystem.Instance.SetSelectedBuilding((PlacedBuildingSO)item);
                 break;
             case ShopItemSO.ItemType.Armor:
+                Inventory.Instance.SetArmor((ArmorItemSO)item);
                 break;
             case ShopItemSO.ItemType.MeleeWeapon:
+                Inventory.Instance.SetMelee((WeaponItemSO)item);
                 break;
             case ShopItemSO.ItemType.RangedWeapon:
+                Inventory.Instance.SetRanged((WeaponItemSO)item);
                 break;
         }
     }
@@ -92,7 +95,7 @@ public class ShopGUI : MonoBehaviour
 
     private void ClearShop()
     {
-        for (int i = 0; i < _shopContentUI.transform.childCount; i++)
+        for (var i = 0; i < _shopContentUI.transform.childCount; i++)
         {
             var child = _shopContentUI.transform.GetChild(i);
             Destroy(child.gameObject);

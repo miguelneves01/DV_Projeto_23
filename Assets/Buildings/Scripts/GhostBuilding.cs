@@ -24,7 +24,7 @@ public class GhostBuilding : MonoBehaviour
         targetPos.y = 1f;
         LeanTween.move(transform.gameObject, targetPos, 0.1f);
         transform.rotation = Quaternion.Lerp(transform.rotation,
-           GridBuildingSystem.Instance.GetPlacedBuildingRotation(), Time.deltaTime * 10f);
+            GridBuildingSystem.Instance.GetPlacedBuildingRotation(), Time.deltaTime * 10f);
     }
 
     private void RefreshVisual()

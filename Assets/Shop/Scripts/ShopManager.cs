@@ -1,18 +1,15 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ShopManager : MonoBehaviour
 {
-    public static ShopManager Instance { private set; get; }
-    [SerializeField] private GameObject _uiBlocker;
     private Dictionary<string, ShopGUI> _shops;
+    [SerializeField] private GameObject _uiBlocker;
+    public static ShopManager Instance { private set; get; }
+
     private void Awake()
     {
-        if (Instance != null)
-        {
-            return;
-        }
+        if (Instance != null) return;
 
         Instance = this;
 
@@ -23,9 +20,9 @@ public class ShopManager : MonoBehaviour
     {
         _shops = new Dictionary<string, ShopGUI>();
 
-        for (int i = 0; i < transform.childCount; i++)
+        for (var i = 0; i < transform.childCount; i++)
         {
-            Transform child = transform.GetChild(i);
+            var child = transform.GetChild(i);
             _shops.Add(child.name, child.GetComponent<ShopGUI>());
         }
     }
@@ -35,7 +32,6 @@ public class ShopManager : MonoBehaviour
         var curShop = _shops.GetValueOrDefault(shopToShow);
 
         foreach (var shop in _shops.Values)
-        {
             if (!shop.Equals(curShop))
             {
                 shop.ShowShop(false);
@@ -45,19 +41,13 @@ public class ShopManager : MonoBehaviour
                 curShop.ShowShop(!curShop.Show);
                 _uiBlocker.SetActive(curShop.Show);
             }
-        }
-
-        
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            foreach (var shop in _shops.Values)
-            {
-                shop.ShowShop(false);
-            }
+            foreach (var shop in _shops.Values) shop.ShowShop(false);
             _uiBlocker.SetActive(false);
         }
     }

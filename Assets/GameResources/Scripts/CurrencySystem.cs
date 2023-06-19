@@ -1,5 +1,4 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CurrencySystem : MonoBehaviour
@@ -16,7 +15,6 @@ public class CurrencySystem : MonoBehaviour
         if (Instance != null) return;
 
         Instance = this;
-
     }
 
     public void AddCurrency(int value)
@@ -35,7 +33,6 @@ public class CurrencySystem : MonoBehaviour
 
         _currencyAmount -= value;
         OnCurrencyChange?.Invoke(this, EventArgs.Empty);
-
     }
 
     public int GetCurrency()

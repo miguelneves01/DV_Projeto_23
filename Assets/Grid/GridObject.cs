@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class GridObject
 {
-    private GridXZ<GridObject> _grid;
-    private PlacedBuilding _placedBuilding;
     private readonly int _x;
     private readonly int _z;
+    private GridXZ<GridObject> _grid;
+    private PlacedBuilding _placedBuilding;
 
     public GridObject(GridXZ<GridObject> grid, int x, int z)
     {
@@ -29,6 +29,11 @@ public class GridObject
         var currPlacedBuilding = _placedBuilding;
         _placedBuilding = null;
         return currPlacedBuilding;
+    }
+
+    public PlacedBuildingSO GetPlacedBuildingSO()
+    {
+        return _placedBuilding.PlacedBuildingSO;
     }
 
     public override string ToString()

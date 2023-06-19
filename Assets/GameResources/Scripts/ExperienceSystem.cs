@@ -1,23 +1,21 @@
 using System;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ExperienceSystem : MonoBehaviour
 {
+    private const float PERCENTAGE_LEVEL_INCREASE = 1.5f;
     public static ExperienceSystem Instance;
-    public int CurrentLevel { private set; get; }
-    private int _currentXP;
-    private int _xpToNextLevel;
-
-    [SerializeField] private Slider _slider;
     [SerializeField] private TMP_Text _curLevel;
+    private int _currentXP;
     [SerializeField] private TMP_Text _nextLevel;
 
-    private const float PERCENTAGE_LEVEL_INCREASE = 1.5f;
+    [SerializeField] private Slider _slider;
 
     [SerializeField] private Sprite _sprite;
+    private int _xpToNextLevel;
+    public int CurrentLevel { private set; get; }
 
     public event EventHandler OnLevelChange;
 
@@ -37,13 +35,12 @@ public class ExperienceSystem : MonoBehaviour
     private void UpdateUI()
     {
         _slider.minValue = 0;
-        _slider.value =  _currentXP;
+        _slider.value = _currentXP;
         _slider.maxValue = _xpToNextLevel;
 
         _curLevel.text = CurrentLevel.ToString();
-        int nextLvl = CurrentLevel + 1;
+        var nextLvl = CurrentLevel + 1;
         _nextLevel.text = nextLvl.ToString();
-
     }
 
     public void AddEXP(int value)
@@ -54,11 +51,12 @@ public class ExperienceSystem : MonoBehaviour
         {
             CurrentLevel++;
             _currentXP -= _xpToNextLevel;
-            float auxXpToNextLevel = PERCENTAGE_LEVEL_INCREASE * _xpToNextLevel;
+            var auxXpToNextLevel = PERCENTAGE_LEVEL_INCREASE * _xpToNextLevel;
             _xpToNextLevel = Mathf.CeilToInt(auxXpToNextLevel);
 
             UpdateUI();
         }
+
         UpdateUI();
 
         OnLevelChange?.Invoke(this, EventArgs.Empty);

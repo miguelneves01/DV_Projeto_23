@@ -4,7 +4,7 @@
     {
         public override void Interact()
         {
-            ShopManager.Instance.ShowShop(_placedBuildingSO.Name);
+            ShopManager.Instance.ShowShop(PlacedBuildingSO.Name);
         }
     }
 }

@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class PlacedBuilding : MonoBehaviour
+public abstract class PlacedBuilding : MonoBehaviour
 {
     private PlacedBuildingSO.Dir _dir;
     private Vector2Int _origin;
 
-    private PlacedBuildingSO _placedBuildingSO;
+    protected PlacedBuildingSO _placedBuildingSO;
 
     public static PlacedBuilding Create(Vector3 worldPos, Vector2Int origin, PlacedBuildingSO.Dir dir,
         PlacedBuildingSO placedBuildingSO, Transform parent)
@@ -22,8 +22,6 @@ public class PlacedBuilding : MonoBehaviour
         return placedBuilding;
     }
 
-    public void Interact()
-    {
-        ShopManager.Instance.ShowShop(_placedBuildingSO.Name);
-    }
+    public abstract void Interact();
+    
 }

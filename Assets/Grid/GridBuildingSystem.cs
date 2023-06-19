@@ -103,6 +103,8 @@ public class GridBuildingSystem : MonoBehaviour
         if (!Input.GetMouseButtonDown(1)) return;
 
         Demolish();
+
+        SetBuildMode(false);
     }
 
     private void Demolish()
@@ -143,8 +145,6 @@ public class GridBuildingSystem : MonoBehaviour
         if (!Input.GetKeyDown(KeyCode.R)) return;
 
         _curDir = PlacedBuildingSO.GetNextDir(_curDir);
-
-        Debug.Log(_curDir);
     }
 
     public void ClearPlacedBuildingSO()
@@ -173,8 +173,6 @@ public class GridBuildingSystem : MonoBehaviour
         var worldPos = _grid.GetWorldPosition(x, z);
         var rotationOffset = SelectedPlacedBuildingSo.GetRotationOffset(_curDir);
         var offset = new Vector3(rotationOffset.x, 0, rotationOffset.y) * cellSize;
-
-        Debug.Log("Offset:" + offset);
 
         return worldPos + offset;
     }

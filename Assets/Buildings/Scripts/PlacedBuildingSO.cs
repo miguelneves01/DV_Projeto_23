@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Placed Building SO", menuName = "PlacedBuildings")]
+[CreateAssetMenu(fileName = "New Placed Building SO", menuName = "ShopItems/PlacedBuildings")]
 public class PlacedBuildingSO : ShopItemSO
 {
     public static Dir GetNextDir(Dir dir)

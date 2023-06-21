@@ -10,10 +10,10 @@ public class ShopItemSO : ScriptableObject
         MeleeWeapon
     }
 
-    [field: SerializeField] public Sprite Sprite { get; }
-    [field: SerializeField] public string Name { get; }
-    [field: SerializeField] public string Description { get; }
-    [field: SerializeField] public int Cost { get; }
-    [field: SerializeField] public int Level { get; }
-    [field: SerializeField] public ItemType Type { get; }
+    [field: SerializeField] public Sprite Sprite { private set; get; }
+    [field: SerializeField] public string Name { private set; get; }
+    [field: SerializeField] public string Description { private set; get; }
+    [field: SerializeField] public int Cost { private set; get; }
+    [field: SerializeField] public int Level { private set; get; }
+    [field: SerializeField] public ItemType Type { private set; get; }
 }

@@ -12,10 +12,10 @@ public class PlacedBuildingSO : ShopItemSO
         Right
     }
 
-    [field: SerializeField] public int Height { get; }
-    [field: SerializeField] public int Width { get; }
-    [field: SerializeField] public Transform Prefab { get; }
-    [field: SerializeField] public Transform Visual { get; }
+    [field: SerializeField] public int Height { private set; get; }
+    [field: SerializeField] public int Width { private set; get; }
+    [field: SerializeField] public Transform Prefab { private set; get; }
+    [field: SerializeField] public Transform Visual { private set; get; }
 
     public static Dir GetNextDir(Dir dir)
     {

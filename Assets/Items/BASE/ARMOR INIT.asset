@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2043d1c67d701434c860f54278dcb06b, type: 3}
-  m_Name: SilverArmorSO
+  m_Name: ARMOR INIT
   m_EditorClassIdentifier: 
-  <Sprite>k__BackingField: {fileID: 1661616623, guid: a4bc98e6c7ef0be458936aa005abf279, type: 3}
-  <Name>k__BackingField: Silver Armor
-  <Description>k__BackingField: Pretty Basic Armor
-  <Cost>k__BackingField: 100
+  <Sprite>k__BackingField: {fileID: 586192874, guid: a4bc98e6c7ef0be458936aa005abf279, type: 3}
+  <Name>k__BackingField: Armor
+  <Description>k__BackingField: Armor
+  <Cost>k__BackingField: 150
   <Level>k__BackingField: 3
   <Type>k__BackingField: 1
-  <Armor>k__BackingField: 30
+  <Armor>k__BackingField: 10
   <Health>k__BackingField: 10

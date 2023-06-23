@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c701142fcd2a38b4698727a4bfbecfd3, type: 3}
-  m_Name: WoodBattleAxeSO
+  m_Name: BOW
   m_EditorClassIdentifier: 
-  <Sprite>k__BackingField: {fileID: -1891274762, guid: a4bc98e6c7ef0be458936aa005abf279, type: 3}
-  <Name>k__BackingField: Wood BattleAxe
-  <Description>k__BackingField: I hope it doesn't break!
-  <Cost>k__BackingField: 75
+  <Sprite>k__BackingField: {fileID: -1968245654, guid: a4bc98e6c7ef0be458936aa005abf279, type: 3}
+  <Name>k__BackingField: Bow
+  <Description>k__BackingField: Bow
+  <Cost>k__BackingField: 150
   <Level>k__BackingField: 2
-  <Type>k__BackingField: 3
-  <Damage>k__BackingField: 25
-  <AttackSpeed>k__BackingField: 0.5
+  <Type>k__BackingField: 2
+  <Damage>k__BackingField: 10
+  <AttackSpeed>k__BackingField: 1

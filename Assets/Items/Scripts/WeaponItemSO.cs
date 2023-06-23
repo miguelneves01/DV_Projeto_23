@@ -6,6 +6,6 @@ using UnityEngine;
 
 public class WeaponItemSO : ShopItemSO
 {
-    [field: SerializeField] public int Damage { private set; get; }
-    [field: SerializeField] public float AttackSpeed { private set; get; }
+    [field: SerializeField] public int Damage { set; get; }
+    [field: SerializeField] public float AttackSpeed { set; get; }
 }

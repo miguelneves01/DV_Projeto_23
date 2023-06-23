@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c701142fcd2a38b4698727a4bfbecfd3, type: 3}
-  m_Name: HardenedWoodBowSO
+  m_Name: MELEE
   m_EditorClassIdentifier: 
-  <Sprite>k__BackingField: {fileID: -1968245654, guid: a4bc98e6c7ef0be458936aa005abf279, type: 3}
-  <Name>k__BackingField: Hardened Wood Bow
-  <Description>k__BackingField: Slightly better than a wood bow.
-  <Cost>k__BackingField: 140
-  <Level>k__BackingField: 4
-  <Type>k__BackingField: 2
-  <Damage>k__BackingField: 15
+  <Sprite>k__BackingField: {fileID: 838919943, guid: a4bc98e6c7ef0be458936aa005abf279, type: 3}
+  <Name>k__BackingField: Melee Weapon
+  <Description>k__BackingField: Melee Weapon
+  <Cost>k__BackingField: 100
+  <Level>k__BackingField: 1
+  <Type>k__BackingField: 3
+  <Damage>k__BackingField: 10
   <AttackSpeed>k__BackingField: 1

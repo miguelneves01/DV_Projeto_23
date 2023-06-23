@@ -172,11 +172,6 @@ MonoBehaviour:
   _shopItemList:
   - {fileID: 11400000, guid: e76d7df19966b314d875dd214e45555b, type: 2}
   - {fileID: 11400000, guid: 25baa5ec458e35047a0261d5a6b0d352, type: 2}
-  - {fileID: 11400000, guid: e1ac790b2c714184392f14aa953987df, type: 2}
-  - {fileID: 11400000, guid: 23b95c2459baf134b99b88d2d24073d3, type: 2}
-  - {fileID: 11400000, guid: d5d7b00b792798c4e980876ca8e7905f, type: 2}
-  - {fileID: 11400000, guid: d65e8d66ee466984ab7a9fb60d23f604, type: 2}
-  - {fileID: 11400000, guid: afbc4f08dda8ce042baae980561e9a7d, type: 2}
   _shopUI: {fileID: 1031040640}
   _uiBlocker: {fileID: 795619853}
 --- !u!1 &144089395
@@ -295,6 +290,7 @@ MonoBehaviour:
   _nextLevel: {fileID: 1703373474}
   _slider: {fileID: 2043995043}
   _sprite: {fileID: 21300000, guid: 8f5ab7f07ba547745b548d2c09de59d4, type: 3}
+  _currentXP: 0
 --- !u!114 &327143467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,6 +304,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerInventory: {fileID: 11400000, guid: e763e3b9a093e13408b078e43a62f656, type: 2}
+  _initialMelee: {fileID: 11400000, guid: 0d53c52a9626b8b4e817a1bb5febadff, type: 2}
+  _initialRanged: {fileID: 11400000, guid: 283ed9f42a0a256449885909334579d6, type: 2}
+  _initialArmor: {fileID: 11400000, guid: 1d02788437020f44eb1efaa7fa515ee2, type: 2}
 --- !u!1001 &343346230
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3144,8 +3143,6 @@ MonoBehaviour:
   _shopItemList:
   - {fileID: 11400000, guid: f42f39bb8e6f57545b09f9465e370f70, type: 2}
   - {fileID: 11400000, guid: b5d5c72793e5ef64784258418a12bcca, type: 2}
-  - {fileID: 11400000, guid: 174707f34113fcc488520dc1a08ee94a, type: 2}
-  - {fileID: 11400000, guid: 89ecaba6efaa229449d0b542aad4bdf4, type: 2}
   _shopUI: {fileID: 343346231}
   _uiBlocker: {fileID: 795619853}
 --- !u!1 &1790063559
@@ -3521,7 +3518,6 @@ MonoBehaviour:
   _shopItemList:
   - {fileID: 11400000, guid: 86db506cbe54e074993c72c34fa5268f, type: 2}
   - {fileID: 11400000, guid: 5aecae94ff4e0864ebcb774631c3a531, type: 2}
-  - {fileID: 11400000, guid: a60530b7af0f98841ad6731583a2386f, type: 2}
   _shopUI: {fileID: 399848202}
   _uiBlocker: {fileID: 795619853}
 --- !u!4 &1951992611

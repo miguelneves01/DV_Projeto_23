@@ -31,13 +31,11 @@ public class ShopGUI : MonoBehaviour
                 GridBuildingSystem.Instance.SetSelectedBuilding((PlacedBuildingSO)item);
                 break;
             case ShopItemSO.ItemType.Armor:
-                Inventory.Instance.SetArmor((ArmorItemSO)item);
+                Inventory.Instance.AddArmorStats((ArmorItemSO)item);
                 break;
             case ShopItemSO.ItemType.MeleeWeapon:
-                Inventory.Instance.SetMelee((WeaponItemSO)item);
-                break;
             case ShopItemSO.ItemType.RangedWeapon:
-                Inventory.Instance.SetRanged((WeaponItemSO)item);
+                Inventory.Instance.AddWeaponStats((WeaponItemSO)item);
                 break;
         }
     }

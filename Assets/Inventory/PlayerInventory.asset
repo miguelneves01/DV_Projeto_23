@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf67985ec8c0c045b9f89949ec864f3, type: 3}
   m_Name: PlayerInventory
   m_EditorClassIdentifier: 
-  <MeleeWeapon>k__BackingField: {fileID: 0}
-  <RangedWeapon>k__BackingField: {fileID: 0}
-  <Armor>k__BackingField: {fileID: 0}
+  <MeleeWeapon>k__BackingField: {fileID: 11400000, guid: 0ed449367439e514189b9bb4ed618f49, type: 2}
+  <RangedWeapon>k__BackingField: {fileID: 11400000, guid: 5eae84fad67e3964fb6a9c8eed384917, type: 2}
+  <Armor>k__BackingField: {fileID: 11400000, guid: 02e3aa1f2ac9b1548a7836bf6131b48e, type: 2}

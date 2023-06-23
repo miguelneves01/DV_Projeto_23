@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c701142fcd2a38b4698727a4bfbecfd3, type: 3}
-  m_Name: WoodSwordSO
+  m_Name: MELEEATKSPD
   m_EditorClassIdentifier: 
-  <Sprite>k__BackingField: {fileID: 701783300, guid: a4bc98e6c7ef0be458936aa005abf279, type: 3}
-  <Name>k__BackingField: Wood Sword
-  <Description>k__BackingField: Slay your enemies with a mighty WOOD SWORD???
-  <Cost>k__BackingField: 50
+  <Sprite>k__BackingField: {fileID: 838919943, guid: a4bc98e6c7ef0be458936aa005abf279, type: 3}
+  <Name>k__BackingField: Attack speed
+  <Description>k__BackingField: + attack speed
+  <Cost>k__BackingField: 100
   <Level>k__BackingField: 1
   <Type>k__BackingField: 3
-  <Damage>k__BackingField: 10
-  <AttackSpeed>k__BackingField: 0.7
+  <Damage>k__BackingField: 0
+  <AttackSpeed>k__BackingField: 0.05

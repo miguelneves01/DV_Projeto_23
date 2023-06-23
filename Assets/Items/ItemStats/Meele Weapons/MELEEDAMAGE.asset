@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c701142fcd2a38b4698727a4bfbecfd3, type: 3}
-  m_Name: WoodDaggerSO
+  m_Name: MELEEDAMAGE
   m_EditorClassIdentifier: 
-  <Sprite>k__BackingField: {fileID: 838919943, guid: a4bc98e6c7ef0be458936aa005abf279, type: 3}
-  <Name>k__BackingField: Wood Dagger
-  <Description>k__BackingField: Does this even kill?
-  <Cost>k__BackingField: 50
+  <Sprite>k__BackingField: {fileID: -1822915958, guid: a4bc98e6c7ef0be458936aa005abf279, type: 3}
+  <Name>k__BackingField: Attack Damage
+  <Description>k__BackingField: + attack damage
+  <Cost>k__BackingField: 100
   <Level>k__BackingField: 1
   <Type>k__BackingField: 3
-  <Damage>k__BackingField: 5
-  <AttackSpeed>k__BackingField: 2
+  <Damage>k__BackingField: 10
+  <AttackSpeed>k__BackingField: 0

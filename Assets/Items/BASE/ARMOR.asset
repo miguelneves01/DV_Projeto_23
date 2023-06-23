@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2043d1c67d701434c860f54278dcb06b, type: 3}
-  m_Name: PlatinumArmorSO
+  m_Name: ARMOR
   m_EditorClassIdentifier: 
-  <Sprite>k__BackingField: {fileID: 1505597753, guid: a4bc98e6c7ef0be458936aa005abf279, type: 3}
-  <Name>k__BackingField: Platinum Armor
-  <Description>k__BackingField: The Best there is
-  <Cost>k__BackingField: 400
-  <Level>k__BackingField: 7
+  <Sprite>k__BackingField: {fileID: 586192874, guid: a4bc98e6c7ef0be458936aa005abf279, type: 3}
+  <Name>k__BackingField: Armor
+  <Description>k__BackingField: Armor
+  <Cost>k__BackingField: 150
+  <Level>k__BackingField: 3
   <Type>k__BackingField: 1
-  <Armor>k__BackingField: 80
-  <Health>k__BackingField: 60
+  <Armor>k__BackingField: 10
+  <Health>k__BackingField: 10

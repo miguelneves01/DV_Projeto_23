@@ -7,15 +7,15 @@ public class ExperienceSystem : MonoBehaviour
 {
     private const float PERCENTAGE_LEVEL_INCREASE = 1.5f;
     public static ExperienceSystem Instance;
+
     [SerializeField] private TMP_Text _curLevel;
-    private int _currentXP;
     [SerializeField] private TMP_Text _nextLevel;
-
     [SerializeField] private Slider _slider;
-
     [SerializeField] private Sprite _sprite;
+
     private int _xpToNextLevel;
-    public int CurrentLevel { private set; get; }
+    [SerializeField] private int _currentXP;
+    [SerializeField] public int CurrentLevel { private set; get; }
 
     public event EventHandler OnLevelChange;
 
@@ -25,7 +25,7 @@ public class ExperienceSystem : MonoBehaviour
 
         Instance = this;
 
-        CurrentLevel = 1;
+        CurrentLevel = 4;
         _currentXP = 0;
         _xpToNextLevel = 11;
 

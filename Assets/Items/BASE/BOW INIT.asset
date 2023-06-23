@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c701142fcd2a38b4698727a4bfbecfd3, type: 3}
-  m_Name: PlatinumBowSO
+  m_Name: BOW INIT
   m_EditorClassIdentifier: 
-  <Sprite>k__BackingField: {fileID: -608866313, guid: a4bc98e6c7ef0be458936aa005abf279, type: 3}
-  <Name>k__BackingField: Platinum Bow
-  <Description>k__BackingField: Swift and Powerful!
-  <Cost>k__BackingField: 450
-  <Level>k__BackingField: 7
+  <Sprite>k__BackingField: {fileID: -1968245654, guid: a4bc98e6c7ef0be458936aa005abf279, type: 3}
+  <Name>k__BackingField: Bow
+  <Description>k__BackingField: Bow
+  <Cost>k__BackingField: 150
+  <Level>k__BackingField: 2
   <Type>k__BackingField: 2
-  <Damage>k__BackingField: 50
+  <Damage>k__BackingField: 10
   <AttackSpeed>k__BackingField: 1.5

@@ -56,4 +56,14 @@ public class Inventory : MonoBehaviour
         _playerInventory.MeleeWeapon.Damage = _initialMelee.Damage;
         _playerInventory.MeleeWeapon.AttackSpeed = _initialMelee.AttackSpeed;
     }
+
+    public WeaponItemSO GetMelee()
+    {
+        return _playerInventory.MeleeWeapon;
+    }
+
+    public WeaponItemSO GetRanged()
+    {
+        return _playerInventory.MeleeWeapon;
+    }
 }

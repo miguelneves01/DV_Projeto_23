@@ -25,7 +25,7 @@ public class ExperienceSystem : MonoBehaviour
 
         Instance = this;
 
-        CurrentLevel = 4;
+        CurrentLevel = 1;
         _currentXP = 0;
         _xpToNextLevel = 11;
 

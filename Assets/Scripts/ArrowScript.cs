@@ -10,6 +10,7 @@ public class ArrowScript : MonoBehaviour
     private float lifetime;
     private SpriteRenderer sprite;
     private Rigidbody2D rb;
+
     void Start()
     {
         lifetime = 0;

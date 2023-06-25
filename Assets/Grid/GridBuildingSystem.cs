@@ -35,8 +35,6 @@ public class GridBuildingSystem : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B)) BuildMode = !BuildMode;
-
         if (!BuildMode)
         {
             HandleInteract();
@@ -62,7 +60,10 @@ public class GridBuildingSystem : MonoBehaviour
 
         var gridObject = _grid.GetValue(x, z);
 
-        if (gridObject.HasBuilding()) gridObject.Interact();
+        if (gridObject.HasBuilding())
+        {
+            gridObject.Interact();
+        }
     }
 
     private void HandleLeftClick()
@@ -177,7 +178,6 @@ public class GridBuildingSystem : MonoBehaviour
 
         return worldPos + offset;
     }
-
 
     public Quaternion GetPlacedBuildingRotation()
     {

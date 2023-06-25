@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: ArmorySO
   m_EditorClassIdentifier: 
   <Sprite>k__BackingField: {fileID: 21300000, guid: 906f701ef581062429e1020b214cca74, type: 3}
-  <Name>k__BackingField: Armory
-  <Description>k__BackingField: Buy and Upgrade Armor!
+  <Name>k__BackingField: Wall Architects
+  <Description>k__BackingField: Buy and Upgrade City Walls!
   <Cost>k__BackingField: 1000
   <Level>k__BackingField: 3
   <Type>k__BackingField: 0

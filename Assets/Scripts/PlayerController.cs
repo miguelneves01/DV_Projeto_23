@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -89,7 +90,14 @@ public class PlayerController : MonoBehaviour
             state = MovementState.mAttack;
             Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position,attackRange,whatIsEnemy);
             for(int i = 0; i < enemiesToDamage.Length;i++){
-                enemiesToDamage[i].GetComponent<EnemyManager>().TakeDamage(playerDamage);
+                try
+                {
+                    enemiesToDamage[i].GetComponent<EnemyManager>().TakeDamage(playerDamage);
+                }
+                catch (NullReferenceException e)
+                {
+                    Debug.Log(e);
+                }
             }
             attackLock = 0f;
         }

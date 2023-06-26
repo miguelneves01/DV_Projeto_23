@@ -16,8 +16,8 @@ public class SpawnerScript : MonoBehaviour
 
     private void Start()
     {
-        numberOfSpawns = 2 * ExperienceSystem.Instance.CurrentLevel;
-        numberOfRounds = 1 * ExperienceSystem.Instance.CurrentLevel;
+        numberOfSpawns = 2 + ExperienceSystem.Instance.CurrentLevel;
+        numberOfRounds = 1 + ExperienceSystem.Instance.CurrentLevel;
 
         StartRound();
     }

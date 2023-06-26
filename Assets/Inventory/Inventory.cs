@@ -22,7 +22,7 @@ public class Inventory : MonoBehaviour
 
         InitItems();
 
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
 
     public void AddWeaponStats(WeaponItemSO item)

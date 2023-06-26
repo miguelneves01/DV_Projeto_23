@@ -20,6 +20,11 @@ public class GhostBuilding : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (_visual == null)
+        {
+            return;
+        }
+
         var targetPos = GridBuildingSystem.Instance.GetMouseWorldPositionXZ();
         targetPos.y = 1f;
         LeanTween.move(transform.gameObject, targetPos, 0.1f).setIgnoreTimeScale(true); ;

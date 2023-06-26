@@ -54,7 +54,7 @@ public class ShopGUI : MonoBehaviour
         if (Show)
         {
             _shopUI.SetActive(Show);
-            LeanTween.scale(_shopUI.gameObject, Vector3.one, 0.1f).setEaseLinear();
+            LeanTween.scale(_shopUI.gameObject, Vector3.one, 0.1f).setEaseLinear().setIgnoreTimeScale(true); ;
         }
         else
         {

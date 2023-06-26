@@ -8,8 +8,8 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private float movementSpeed;
     [SerializeField] private float attackRange;
     [SerializeField] private float attackCooldown;
-    [SerializeField] private float health;
-    [SerializeField] private int damage;
+    private float health;
+    private int damage;
     [SerializeField] private LayerMask whatIsEnemy;
     [SerializeField] private Transform attackPos;
     [SerializeField] private Transform groundPos;
@@ -28,8 +28,12 @@ public class EnemyManager : MonoBehaviour
         anim = GetComponent<Animator>();
         target = GameObject.Find("Gate").transform;
 
-        gold = 10 * ExperienceSystem.Instance.CurrentLevel;
-        xp = 2 * ExperienceSystem.Instance.CurrentLevel;
+        gold = 1 + ExperienceSystem.Instance.CurrentLevel/2;
+        xp = ExperienceSystem.Instance.CurrentLevel;
+
+        health = 50 * ExperienceSystem.Instance.CurrentLevel;
+
+        damage = 5 * ExperienceSystem.Instance.CurrentLevel;
 
         GameObject player = GameObject.FindWithTag("Player");
         Physics2D.IgnoreCollision(groundPos.GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
@@ -60,6 +64,7 @@ public class EnemyManager : MonoBehaviour
         }
         if (dead){
             deathTime += Time.deltaTime;
+            Destroy(GetComponent<Collider2D>());
             if(deathTime > 2){
                 Destroy(gameObject);
             }
@@ -69,6 +74,7 @@ public class EnemyManager : MonoBehaviour
 
     public void TakeDamage(int damage){
         anim.SetTrigger("Hurt");
+        StartCoroutine("IDamageIndicator");
         health -= damage;
         Debug.Log("Damage Taken");
         if (health <= 0){
@@ -82,5 +88,13 @@ public class EnemyManager : MonoBehaviour
     void OnDrawGizmosSelected(){
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPos.position,attackRange);
+    }
+
+    private IEnumerator IDamageIndicator()
+    {
+        GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        GetComponent<SpriteRenderer>().color = Color.white;
+        yield return new WaitForSeconds(0.1f);
     }
 }

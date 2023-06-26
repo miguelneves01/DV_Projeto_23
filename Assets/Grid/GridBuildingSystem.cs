@@ -227,6 +227,7 @@ public class GridBuildingSystem : MonoBehaviour
 
         if (list.Count <= 0)
         {
+            SceneController.LoadScene("GameOver");
             return;
         }
 

@@ -146,6 +146,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3143ab006f55ee149b07c9554930aba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 2
   resetTime: 50
-  arrowDamage: 50

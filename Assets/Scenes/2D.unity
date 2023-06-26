@@ -1104,7 +1104,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 268, y: -402}
+  m_AnchoredPosition: {x: 266, y: -430}
   m_SizeDelta: {x: 350, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1122475980
@@ -1409,7 +1409,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1393669198}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.062, y: 2.702, z: 0.19355881}
+  m_LocalPosition: {x: 11.062, y: 2.695, z: 0.19355881}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2306,8 +2306,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 268, y: -180}
-  m_SizeDelta: {x: 300, y: 300}
+  m_AnchoredPosition: {x: 266, y: -185}
+  m_SizeDelta: {x: 432.0571, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2116195318
 MonoBehaviour:
@@ -2329,8 +2329,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "W/A/S/D: \nMove Camera\n\nQ/E:Rotate Camera\n\nZ/X:Zoom IN/OUT\n\nR: Rotate
-    Building\n\nRIGHT CLICK: Build/Buy/Interact\n\nLEFT CLICK: DEMOLISH"
+  m_text: "Objective: \n\nDefend your city from raiders\n\n\nControls: \n\nWASD to
+    Move\n\nSpace to Jump\n\nR_Click for Bow Attack\n\nL_Click for Sword Attack"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 589f1c57ec9fb5c4d8b2745456537166, type: 2}
   m_sharedMaterial: {fileID: -9084901840213920017, guid: 589f1c57ec9fb5c4d8b2745456537166, type: 2}
@@ -2393,7 +2393,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -12.284424, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2414,6 +2414,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 69255079158779544, guid: 48f6c4141016ae345a5dda1fd796f9f4, type: 3}
+      propertyPath: m_Size.y
+      value: 0.8801582
+      objectReference: {fileID: 0}
+    - target: {fileID: 69255079158779544, guid: 48f6c4141016ae345a5dda1fd796f9f4, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.62493694
+      objectReference: {fileID: 0}
     - target: {fileID: 69255079158779545, guid: 48f6c4141016ae345a5dda1fd796f9f4, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2655,6 +2663,18 @@ PrefabInstance:
     - target: {fileID: 3018665987704298884, guid: ba0bde3e718df0740b93277859f52dbb, type: 3}
       propertyPath: _jumpPower
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3018665987704298884, guid: ba0bde3e718df0740b93277859f52dbb, type: 3}
+      propertyPath: attackRange
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3018665987704298885, guid: ba0bde3e718df0740b93277859f52dbb, type: 3}
+      propertyPath: m_Size.y
+      value: 0.29490018
+      objectReference: {fileID: 0}
+    - target: {fileID: 3018665987704298885, guid: ba0bde3e718df0740b93277859f52dbb, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.04009974
       objectReference: {fileID: 0}
     - target: {fileID: 3018665987704298895, guid: ba0bde3e718df0740b93277859f52dbb, type: 3}
       propertyPath: m_Name

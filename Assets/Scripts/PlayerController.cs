@@ -95,14 +95,20 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Mouse1) && grounded && attackLock > 0.8f){
             state = MovementState.rAttack;
-            if (sprite.flipX){
-                Instantiate(arrowPrefabFlipped, launchPos.position, arrowPrefabFlipped.transform.rotation);
-            }else{
-                Instantiate(arrowPrefab, launchPos.position, arrowPrefab.transform.rotation);
-            }
+            StartCoroutine("BowAttack");
             attackLock = 0f;
         }
         anim.SetInteger("state", (int)state);
+    }
+
+    private IEnumerator BowAttack()
+    {
+        yield return new WaitForSeconds(0.45f);
+        if (sprite.flipX){
+                Instantiate(arrowPrefabFlipped, launchPos.position, arrowPrefabFlipped.transform.rotation);
+        }else{
+                Instantiate(arrowPrefab, launchPos.position, arrowPrefab.transform.rotation);
+        }
     }
 
     void OnDrawGizmosSelected(){

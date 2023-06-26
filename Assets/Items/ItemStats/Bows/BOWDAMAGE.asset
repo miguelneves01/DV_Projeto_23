@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c701142fcd2a38b4698727a4bfbecfd3, type: 3}
   m_Name: BOWDAMAGE
   m_EditorClassIdentifier: 
-  <Sprite>k__BackingField: {fileID: 1584965791, guid: a4bc98e6c7ef0be458936aa005abf279, type: 3}
+  <Sprite>k__BackingField: {fileID: -608866313, guid: a4bc98e6c7ef0be458936aa005abf279, type: 3}
   <Name>k__BackingField: Damage
   <Description>k__BackingField: + Damage
   <Cost>k__BackingField: 150
   <Level>k__BackingField: 2
   <Type>k__BackingField: 2
-  <Damage>k__BackingField: 10
+  <Damage>k__BackingField: 2
   <AttackSpeed>k__BackingField: 0

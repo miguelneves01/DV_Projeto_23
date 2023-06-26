@@ -29,7 +29,7 @@ public class EnemyManager : MonoBehaviour
         target = GameObject.Find("Gate").transform;
 
         gold = 1 + ExperienceSystem.Instance.CurrentLevel/2;
-        xp = ExperienceSystem.Instance.CurrentLevel;
+        xp = 2 * ExperienceSystem.Instance.CurrentLevel;
 
         health = 50 * ExperienceSystem.Instance.CurrentLevel;
 

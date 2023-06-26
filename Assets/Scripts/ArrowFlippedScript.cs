@@ -32,7 +32,7 @@ public class ArrowFlippedScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<Mob1>().TakeDamage(arrowDamage);
+            collision.gameObject.GetComponent<EnemyManager>().TakeDamage(arrowDamage);
         }
         Destroy(gameObject);
     }

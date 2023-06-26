@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
             state = MovementState.mAttack;
             Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position,attackRange,whatIsEnemy);
             for(int i = 0; i < enemiesToDamage.Length;i++){
-                enemiesToDamage[i].GetComponent<Mob1>().TakeDamage(playerDamage);
+                enemiesToDamage[i].GetComponent<EnemyManager>().TakeDamage(playerDamage);
             }
             attackLock = 0f;
         }

@@ -5,22 +5,13 @@ using UnityEngine;
 public class GateScript : MonoBehaviour
 {
     [SerializeField] private int health;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void TakeDamage(int damage){
         health -= damage;
         Debug.Log("Damage Taken");
         if (health <= 0){
+            GridBuildingSystem.Instance.DemolishRandomBuilding();
+            SceneController.UnloadScene("2D");
             Destroy(gameObject);
         }
     }

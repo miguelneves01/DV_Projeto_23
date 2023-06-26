@@ -56,4 +56,10 @@ public class CameraController : MonoBehaviour
         _cameraTransform.localPosition =
             Vector3.Lerp(_cameraTransform.localPosition, _newZoom, Time.deltaTime * _movementTime);
     }
+
+    public void ResetCamera()
+    {
+        _newPosition = new Vector3(50, 40, 0);
+        transform.position = _newPosition;
+    }
 }

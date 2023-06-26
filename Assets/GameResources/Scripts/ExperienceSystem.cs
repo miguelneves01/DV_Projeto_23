@@ -32,8 +32,18 @@ public class ExperienceSystem : MonoBehaviour
         UpdateUI();
     }
 
+    private void Start()
+    {
+        UpdateUI();
+    }
+
     private void UpdateUI()
     {
+        if (!SceneController.IsSceneActive("3D"))
+        {
+            return;
+        }
+
         _slider.minValue = 0;
         _slider.value = _currentXP;
         _slider.maxValue = _xpToNextLevel;
@@ -59,7 +69,10 @@ public class ExperienceSystem : MonoBehaviour
 
         UpdateUI();
 
-        OnLevelChange?.Invoke(this, EventArgs.Empty);
+        if (SceneController.IsSceneActive("3D"))
+        {
+            OnLevelChange?.Invoke(this, EventArgs.Empty);
+        }
     }
 
     public Sprite GetSprite()

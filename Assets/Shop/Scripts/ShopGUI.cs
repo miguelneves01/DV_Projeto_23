@@ -59,7 +59,7 @@ public class ShopGUI : MonoBehaviour
         else
         {
             LeanTween.scale(_shopUI.gameObject, Vector3.zero, 0.1f).setEaseLinear().setOnComplete(() =>
-                _shopUI.SetActive(Show));
+                _shopUI.SetActive(Show)).setIgnoreTimeScale(true);
         }
 
         if (GridBuildingSystem.Instance.SelectedPlacedBuildingSo != null)

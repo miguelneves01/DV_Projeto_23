@@ -1115,7 +1115,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3449367571047405216, guid: 34d275446ce5cae4482a103c06e2b264, type: 3}
       propertyPath: m_Name
-      value: ArmoryShop
+      value: ArchitectShop
       objectReference: {fileID: 0}
     - target: {fileID: 3449367571047405216, guid: 34d275446ce5cae4482a103c06e2b264, type: 3}
       propertyPath: m_IsActive
@@ -3993,7 +3993,7 @@ GameObject:
   - component: {fileID: 1529074862}
   - component: {fileID: 1529074866}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: 3D Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4777,7 +4777,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 327143468}
         m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
-        m_MethodName: LoadScene
+        m_MethodName: LoadSceneAdd
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5073,7 +5073,6 @@ MonoBehaviour:
   _buttonTemplate: {fileID: 1805530383264661239, guid: 8358928d3bceb864686f77d750448893, type: 3}
   _shopContentUI: {fileID: 399848201}
   _shopItemList:
-  - {fileID: 11400000, guid: 86db506cbe54e074993c72c34fa5268f, type: 2}
   - {fileID: 11400000, guid: 5aecae94ff4e0864ebcb774631c3a531, type: 2}
   _shopUI: {fileID: 399848202}
   _uiBlocker: {fileID: 795619853}

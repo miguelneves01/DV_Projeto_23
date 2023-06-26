@@ -5,8 +5,8 @@ using UnityEngine;
 public class SpawnerScript : MonoBehaviour
 {
     [SerializeField] private GameObject prefab;
-    [SerializeField] private int numberOfSpawns;
-    [SerializeField] private int numberOfRounds;
+    private int numberOfSpawns;
+    private int numberOfRounds;
     [SerializeField] private float timeBetweenRounds;
     [SerializeField] private float timeBetweenSpawns;
     
@@ -16,11 +16,14 @@ public class SpawnerScript : MonoBehaviour
 
     private void Start()
     {
+        numberOfSpawns = 2 * ExperienceSystem.Instance.CurrentLevel;
+        numberOfRounds = 1 * ExperienceSystem.Instance.CurrentLevel;
+
         StartRound();
     }
 
     private void StartRound()
-    {
+    {   
         currentRound++;
         spawnsRemaining = numberOfSpawns;
 
@@ -31,12 +34,14 @@ public class SpawnerScript : MonoBehaviour
     private void SpawnPrefab()
     {
 
+
         if (spawnsRemaining <= 0)
         {
-            if (currentRound >= numberOfRounds)
+            if (currentRound > numberOfRounds)
             {
                 Debug.Log("Spawning completed");
                 spawnCompleted = true;
+                
             }
             else
             {
@@ -61,6 +66,15 @@ public class SpawnerScript : MonoBehaviour
     {
         yield return new WaitForSeconds(timeBetweenSpawns);
         SpawnPrefab();
+    }
+
+    private void Update()
+    {
+        var aliveEnemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        if (spawnCompleted && aliveEnemyCount == 0)
+        {
+            SceneController.UnloadScene("2D");
+        }
     }
 }
 

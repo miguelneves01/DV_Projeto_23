@@ -22,7 +22,7 @@ public class GhostBuilding : MonoBehaviour
     {
         var targetPos = GridBuildingSystem.Instance.GetMouseWorldPositionXZ();
         targetPos.y = 1f;
-        LeanTween.move(transform.gameObject, targetPos, 0.1f);
+        LeanTween.move(transform.gameObject, targetPos, 0.1f).setIgnoreTimeScale(true); ;
         transform.rotation = Quaternion.Lerp(transform.rotation,
             GridBuildingSystem.Instance.GetPlacedBuildingRotation(), Time.deltaTime * 10f);
     }

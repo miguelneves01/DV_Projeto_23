@@ -13,6 +13,7 @@ public class GridBuildingSystem : MonoBehaviour
 
     private PlacedBuildingSO.Dir _curDir = PlacedBuildingSO.Dir.Down;
 
+
     private GridXZ<GridObject> _grid;
 
     [SerializeField] private Transform _parentTransform;
@@ -31,10 +32,16 @@ public class GridBuildingSystem : MonoBehaviour
 
         _grid = new GridXZ<GridObject>(_gridHeight, _gridWidth, _cellSize,
             (grid, x, z) => new GridObject(grid, x, z));
+        
     }
 
     private void Update()
     {
+        if (!SceneController.IsSceneActive("3D"))
+        {
+            return;
+        }
+
         if (!BuildMode)
         {
             HandleInteract();
@@ -54,11 +61,23 @@ public class GridBuildingSystem : MonoBehaviour
         if (!Input.GetMouseButtonDown(0)) return;
 
         var pos = Utils.GetMouseWorldPosition();
-        _grid.GetXZ(pos, out var x, out var z);
+
+        int x, z;
+        try
+        {
+            _grid.GetXZ(pos, out x, out z);
+        }
+        catch (NullReferenceException e)
+        {
+            Debug.Log(e);
+            return;
+        }
 
         if (!_grid.InGrid(x, z)) return;
 
         var gridObject = _grid.GetValue(x, z);
+
+        Debug.Log(gridObject);
 
         if (gridObject.HasBuilding())
         {
@@ -206,6 +225,10 @@ public class GridBuildingSystem : MonoBehaviour
 
         list = list.FindAll(o => o.HasBuilding());
 
+        if (list.Count <= 0)
+        {
+            return;
+        }
 
         var building = list[Random.Range(0, list.Count)];
 

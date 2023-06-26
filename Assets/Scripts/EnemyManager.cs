@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
-{
-    [SerializeField] private Transform target;
+{ 
+    private Transform target;
     [SerializeField] private float movementSpeed;
     [SerializeField] private float attackRange;
     [SerializeField] private float attackCooldown;
@@ -12,6 +12,9 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private int damage;
     [SerializeField] private LayerMask whatIsEnemy;
     [SerializeField] private Transform attackPos;
+    [SerializeField] private Transform groundPos;
+    private int gold;
+    private int xp;
     private float lastAttack = 3f;
     private float direction;
     private Rigidbody2D rb;
@@ -23,7 +26,14 @@ public class EnemyManager : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-    }
+        target = GameObject.Find("Gate").transform;
+
+        gold = 10 * ExperienceSystem.Instance.CurrentLevel;
+        xp = 2 * ExperienceSystem.Instance.CurrentLevel;
+
+        GameObject player = GameObject.FindWithTag("Player");
+        Physics2D.IgnoreCollision(groundPos.GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
+}
 
     // Update is called once per frame
     void Update()
@@ -63,6 +73,8 @@ public class EnemyManager : MonoBehaviour
         Debug.Log("Damage Taken");
         if (health <= 0){
             anim.SetTrigger("Death");
+            CurrencySystem.Instance.AddCurrency(gold);
+            ExperienceSystem.Instance.AddEXP(xp);
             dead = true;
         }
     }

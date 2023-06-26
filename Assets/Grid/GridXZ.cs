@@ -5,7 +5,7 @@ using UnityEngine;
 public class GridXZ<T>
 {
     private readonly float cellSize;
-    private readonly T[,] gridArray;
+    private  T[,] gridArray;
     private readonly int height;
     private readonly int width;
 
@@ -21,6 +21,16 @@ public class GridXZ<T>
         for (var x = 0; x < gridArray.GetLength(0); x++)
         for (var z = 0; z < gridArray.GetLength(1); z++)
             gridArray[x, z] = createGridObject(this, x, z);
+    }
+
+    public void SetGrid(T[,] grid)
+    {
+        this.gridArray = (T[,])grid.Clone();
+    }
+
+    public T[,] GetGrid()
+    {
+        return this.gridArray;
     }
 
     public void GetXZ(Vector3 worldPosition, out int x, out int z)
